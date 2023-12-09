@@ -1,3 +1,8 @@
+// Another way of doing this is to use the Exclude utility type
+// type RemoveNaughtyChildren<T> = {
+//   [K in keyof T as Exclude<K, `naughty_${string}`>]: T[K]
+// }
+
 type RemoveNaughtyChildren<T> = {
   [K in keyof T as K extends `naughty_${string}` ? never : K]: T[K]
 }
